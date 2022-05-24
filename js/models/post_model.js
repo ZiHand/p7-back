@@ -18,11 +18,11 @@ const postSchema = db.define("posts", {
     empty: true,
   },
   picture: {
-    type: Sequelize.DataTypes.STRING(150),
+    type: Sequelize.DataTypes.STRING(255),
     empty: true,
   },
   video: {
-    type: Sequelize.DataTypes.STRING(200),
+    type: Sequelize.DataTypes.STRING(255),
     empty: true,
   },
 });
