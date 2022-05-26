@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "// - Install Express\r npm i express\r // - install nodemon\r npm i -D nodemon\r // - Install mysql2\r npm i mysql2\r // - Install sequelize\r npm i sequelize\r // - Install dotenv : The dotenv is a zero-dependency module that loads environment variables from a . env file into process. env.\r npm i dotenv\r // - Install joi : Datas validation\r npm i joi\r // - Install bcrypt : Datas encryption\r npm i bcrypt\r // - Install jwt : Json Web Token\r npm i -s jsonwebtoken\r // cookie-parser\r npm i cookie-parser\r // cors options\r npm i -s cors\r // multer\r npm i -s multer@^2.0.0-rc.1",
   "main": "server.js",
+  "start": "node server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
