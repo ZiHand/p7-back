@@ -43,8 +43,6 @@ module.exports.checkUser = (req, res, next) => {
 module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
 
-  console.log(process.env.TOKEN_SECRET);
-
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (error, decodedToken) => {
       if (error) {
