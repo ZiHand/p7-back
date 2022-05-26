@@ -43,20 +43,18 @@ module.exports.checkUser = (req, res, next) => {
 module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
 
+  console.log(process.env.TOKEN_SECRET);
+
   if (token) {
-    jwt.verify(
-      token,
-      "hypoliteestunchienquimangetrop",
-      async (error, decodedToken) => {
-        if (error) {
-          console.log(error);
-          res.send(200).json("no token");
-        } else {
-          console.log("User logged : " + decodedToken.id);
-          next();
-        }
+    jwt.verify(token, process.env.TOKEN_SECRET, async (error, decodedToken) => {
+      if (error) {
+        console.log(error);
+        res.send(200).json("no token");
+      } else {
+        console.log("User logged : " + decodedToken.id);
+        next();
       }
-    );
+    });
   } else {
     console.log("No Valid Token.");
   }
