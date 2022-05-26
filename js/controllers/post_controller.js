@@ -16,6 +16,8 @@ module.exports.createPost = (req, res) => {
   const { id } = req.params;
   let User;
 
+  console.log(req.body);
+
   if (!message) {
     console.log("NO MESSAGE");
     return res.status(500).send({ message: "Empty post" });
@@ -97,6 +99,7 @@ module.exports.createPost = (req, res) => {
       }*/
 
       post.setUser(User);
+      post.save();
 
       res.status(201).json({ message: `Post added : ${post.id}` });
     })

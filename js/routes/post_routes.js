@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const postController = require("../controllers/post_controller");
-/*const multer            = require("multer");
-const upload            = multer();*/
+const multer = require("multer");
+const upload = multer();
 
 // ===================================================
 //                 Routes Definitions
 // ===================================================
-router.post("/:id" /*, upload.single("file")*/, postController.createPost);
+router.post("/:id", upload.single("file"), postController.createPost);
 router.get("/getall", postController.getPosts);
 router.get("/:id", postController.getPost);
 router.put("/:id", postController.updatePost);
