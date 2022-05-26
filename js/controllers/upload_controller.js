@@ -1,13 +1,12 @@
-const UserModel         = require("../models/user_model");
-const fs                = require("fs");
-const { promisify }     = require("util");
-const pipeline          = promisify(require("stream").pipeline);
-const { uploadErrors }  = require('../utils/errors_utils');
-const path              = require('path');
+const UserModel = require("../models/user_model");
+const fs = require("fs");
+const { promisify } = require("util");
+const pipeline = promisify(require("stream").pipeline);
+const { uploadErrors } = require("../utils/errors_utils");
+const path = require("path");
 
-module.exports.uploadProfil = async (req, res) => 
-{
-   try 
+module.exports.uploadProfil = async (req, res) => {
+  /*try 
     {
         if (!req.file)
         {
@@ -78,5 +77,5 @@ module.exports.uploadProfil = async (req, res) =>
     {
         console.log(error.message);
         return res.status(500).send({ message: error });
-    }
-}
+    }*/
+};
