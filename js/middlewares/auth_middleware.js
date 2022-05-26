@@ -9,6 +9,8 @@ const UserModel = require("../models/user_model");
 module.exports.checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
 
+  console.log("checkUser Cookies", req.cookies);
+
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (error, decodedToken) => {
       if (error) {
@@ -43,7 +45,7 @@ module.exports.checkUser = (req, res, next) => {
 module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
 
-  console.log("Cookies", req.cookies);
+  console.log("requireAuth Cookies", req.cookies);
 
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (error, decodedToken) => {
