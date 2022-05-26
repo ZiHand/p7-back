@@ -49,7 +49,9 @@ module.exports.login = async (req, res) => {
 
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge });
     res.status(200).json({ user: user.id });
+    console.log("login token", token);
   } catch (error) {
+    console.log("login error", error);
     const errors = signInErrors(error);
     res.status(200).json({ errors });
   }
