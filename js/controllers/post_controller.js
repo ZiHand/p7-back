@@ -41,7 +41,7 @@ module.exports.createPost = (req, res) => {
   }
 
   // Manage file
-  let fileName;
+  /*let fileName;
 
   try {
     if (req.file !== null) {
@@ -61,7 +61,7 @@ module.exports.createPost = (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).json({ err });
-  }
+  }*/
 
   PostModel.create({
     message: message,
@@ -69,7 +69,7 @@ module.exports.createPost = (req, res) => {
     video: video,
   })
     .then((post) => {
-      if (picture && req.file) {
+      /*if (picture && req.file) {
         fileName = post.id + ".jpg";
         const filedir = path.normalize(
           `${__dirname}/../../../frontend/public/uploads/post/${fileName}`
@@ -94,7 +94,7 @@ module.exports.createPost = (req, res) => {
           console.log("pipeline failed with error:", error);
           return res.status(500).send({ message: "Creating file error" });
         }
-      }
+      }*/
 
       post.setUser(User);
 
