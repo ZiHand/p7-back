@@ -26,7 +26,7 @@ app.use(cookieParser());
 // ===================================================
 const corsOptions = {
   origin: "*",
-  credentials: true,
+  credentials: false,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
