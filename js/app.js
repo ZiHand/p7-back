@@ -24,7 +24,7 @@ app.use(cookieParser());
 // ===================================================
 //                  cors - Options
 // ===================================================
-const corsOptions = {
+/*const corsOptions = {
   origin: "http://p7-front.zihand.fr",
   credentials: true,
   allowedHeaders: [
@@ -40,7 +40,22 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
+
+//Cors Configuration - Start
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://p7-front.zihand.fr");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested, Content-Type, Accept Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "POST, PUT, PATCH, GET, DELETE");
+    return res.status(200).json({});
+  }
+  next();
+});
+//Cors Configuration - End
 
 // ===================================================
 //                 Auth Definitions
