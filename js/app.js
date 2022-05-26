@@ -47,6 +47,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://p7-front.zihand.fr");
   res.header(
     "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Credentials",
     "Origin, X-Requested, Content-Type, Accept Authorization"
   );
   if (req.method === "OPTIONS") {
