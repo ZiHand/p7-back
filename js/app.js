@@ -30,7 +30,7 @@ const corsOptions = {
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: true,
+  preflightContinue: false,
 };
 
 app.use(cors(corsOptions));
