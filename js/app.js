@@ -36,7 +36,10 @@ app.use(cookieParser());
 app.use(cors(corsOptions));*/
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://p7-front.zihand.fr");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "http://p7-front.zihand.fr/login"
+  );
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
