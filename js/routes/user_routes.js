@@ -2,7 +2,7 @@ const router = require("express").Router();
 const authController = require("../controllers/auth_controller");
 const userController = require("../controllers/user_controller");
 const uploadController = require("../controllers/upload_controller");
-const multer = require("multer");
+//const multer = require("multer");
 //const upload = multer();
 
 // ===================================================
