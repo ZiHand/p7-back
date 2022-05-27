@@ -50,8 +50,8 @@ module.exports.login = async (req, res) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       maxAge: maxAge,
-      secure: true,
-      sameSite: "none",
+      secure: true, // Needed for Heroku.com CORS Policy
+      sameSite: "none", // Needed for Heroku.com CORS Policy
     });
     res.status(200).json({ user: user.id });
     console.log("login token", token);

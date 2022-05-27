@@ -25,7 +25,7 @@ app.use(cookieParser());
 //                  cors - Options
 // ===================================================
 const corsOptions = {
-  origin: process.env.ALLOWED_URL,
+  origin: process.env.ALLOWED_URL, // Set the correct one (you can override it on Heroku.com)
   credentials: true,
   allowedHeaders: [
     "sessionId",

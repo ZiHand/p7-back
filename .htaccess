@@ -6,5 +6,5 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
-  Header set Access-Control-Allow-Origin https://zihand.fr
+  Header set Access-Control-Allow-Origin https://zihand.fr // CORS Policy
 </IfModule>
