@@ -25,9 +25,15 @@ app.use(cookieParser());
 //                  cors - Options
 // ===================================================
 const corsOptions = {
-  origin: "https://zihand.fr",
+  origin: "*",
   credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type"],
+  allowedHeaders: [
+    "sessionId",
+    "Content-Type",
+    "Accept",
+    "Origin",
+    "Authorization",
+  ],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
