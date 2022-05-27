@@ -69,10 +69,12 @@ userSchema.login = async function (email, password) {
   const user = await this.findOne({ where: { email: email } });
 
   if (!user) {
+    console.log("incorrect email");
     throw new Error("email");
   }
 
   if (!bcrypt.compareSync(password, user.password)) {
+    console.log("incorrect password");
     throw new Error("password");
   }
 
