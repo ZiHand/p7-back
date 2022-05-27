@@ -12,6 +12,7 @@ const path = require("path");
 // getUsers
 // ===================================================
 module.exports.getUsers = (req, res) => {
+  console.log("getUsers call");
   UserModel.findAll({
     attributes: { exclude: ["createdAt", "updatedAt", "password"] },
   })
@@ -25,6 +26,7 @@ module.exports.getUsers = (req, res) => {
 // getUser
 // ===================================================
 module.exports.getUser = (req, res) => {
+  console.log("getUser call");
   const { id } = req.params;
 
   UserModel.findByPk(id, {
