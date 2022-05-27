@@ -27,7 +27,7 @@ app.use(cookieParser());
 const corsOptions = {
   origin: process.env.ALLOWED_URL,
   credentials: true,
-  allowedHeaders: [
+  /*allowedHeaders: [
     "sessionId",
     "Content-Type",
     "Accept",
@@ -36,7 +36,7 @@ const corsOptions = {
   ],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
+  preflightContinue: false,*/
 };
 
 app.use(cors(corsOptions));
@@ -48,7 +48,7 @@ app.use(cors(corsOptions));
 // ===================================================
 app.get("*", checkUser);
 
-app.get("/jwtid", requireAuth, (req, res) => {
+app.get("/jwtid", cors(corsOptions), requireAuth, (req, res) => {
   res.status(200).send(res.locals.user.id);
 });
 
