@@ -25,7 +25,7 @@ app.use(cookieParser());
 //                  cors - Options
 // ===================================================
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost",
   credentials: true,
   allowedHeaders: [
     "sessionId",
