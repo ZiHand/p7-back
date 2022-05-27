@@ -6,5 +6,5 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
-  Header set Access-Control-Allow-Origin http://localhost:3000
+  Header set Access-Control-Allow-Origin https://localhost:3000
 </IfModule>
