@@ -54,7 +54,6 @@ module.exports.login = async (req, res) => {
       sameSite: "none", // Needed for Heroku.com CORS Policy
     });
     res.status(200).json({ user: user.id });
-    console.log("login token", token);
   } catch (error) {
     console.log("login error", error);
     const errors = signInErrors(error);
@@ -69,4 +68,5 @@ module.exports.logout = (req, res) => {
   console.log("logout");
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/");
+  console.log(res.cookie);
 };
