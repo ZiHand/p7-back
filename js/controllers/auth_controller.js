@@ -50,7 +50,7 @@ module.exports.login = async (req, res) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       maxAge: maxAge,
-      sameSite: "strict",
+      sameSite: "none",
     });
     res.status(200).json({ user: user.id });
     console.log("login token", token);
