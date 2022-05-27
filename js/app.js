@@ -47,7 +47,6 @@ app.use(cors(corsOptions));
 // Apply to all get routes
 // ===================================================
 app.get("*", checkUser);
-app.options("*", cors());
 
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user.id);
