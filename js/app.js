@@ -27,7 +27,7 @@ app.use(cookieParser());
 const corsOptions = {
   origin: process.env.ALLOWED_URL,
   credentials: true,
-  /*allowedHeaders: [
+  allowedHeaders: [
     "sessionId",
     "Content-Type",
     "Accept",
@@ -36,9 +36,10 @@ const corsOptions = {
   ],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,*/
+  preflightContinue: false,
 };
 
+app.set("trust proxy", 1);
 app.use(cors(corsOptions));
 
 // ===================================================
