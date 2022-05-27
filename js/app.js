@@ -25,7 +25,7 @@ app.use(cookieParser());
 //                  cors - Options
 // ===================================================
 const corsOptions = {
-  origin: "*",
+  origin: "http://p7-front.zihand.fr",
   credentials: true,
   allowedHeaders: [
     "sessionId",
