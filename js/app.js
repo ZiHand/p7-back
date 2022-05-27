@@ -26,7 +26,7 @@ app.use(cookieParser());
 // ===================================================
 const corsOptions = {
   origin: "http://localhost:3000",
-  credentials: false,
+  credentials: true,
   allowedHeaders: [
     "sessionId",
     "Content-Type",
@@ -47,6 +47,7 @@ app.use(cors(corsOptions));
 // Apply to all get routes
 // ===================================================
 app.get("*", checkUser);
+app.options("*", cors());
 
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user.id);
