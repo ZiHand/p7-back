@@ -78,6 +78,7 @@ userSchema.login = async function (email, password) {
     throw new Error("password");
   }
 
+  console.log("User logged : ", email);
   return user;
 };
 
