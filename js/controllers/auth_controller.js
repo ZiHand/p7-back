@@ -74,5 +74,6 @@ module.exports.logout = async (req, res) => {
     sameSite: "none", // Needed for Heroku.com CORS Policy
   });
   console.log("Cookie: ", JSON.stringify(res.cookie));
-  res.redirect("/api/user/getAll");
+  //res.redirect("/api/user/getAll");
+  res.send("Logged out");
 };
