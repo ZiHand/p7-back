@@ -70,9 +70,9 @@ module.exports.logout = async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
     maxAge: 1,
-    //secure: true, // Needed for Heroku.com CORS Policy
-    //sameSite: "none", // Needed for Heroku.com CORS Policy
+    secure: true, // Needed for Heroku.com CORS Policy
+    sameSite: "none", // Needed for Heroku.com CORS Policy
   });
   console.log("Cookie: ", JSON.stringify(res.cookie));
-  //res.redirect("/");
+  res.redirect("/");
 };
