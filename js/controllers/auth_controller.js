@@ -73,6 +73,6 @@ module.exports.logout = async (req, res) => {
     //secure: true, // Needed for Heroku.com CORS Policy
     //sameSite: "none", // Needed for Heroku.com CORS Policy
   });
-  console.log("Cookie: ", res.cookie);
+  console.log("Cookie: ", JSON.stringify(res.cookie));
   //res.redirect("/");
 };
