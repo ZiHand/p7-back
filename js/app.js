@@ -39,7 +39,7 @@ const corsOptions = {
   preflightContinue: false,
 };
 
-app.set("trust proxy", 1);
+//app.set("trust proxy", 1);
 app.use(cors(corsOptions));
 
 // ===================================================
@@ -48,7 +48,7 @@ app.use(cors(corsOptions));
 // Apply to all get routes
 // ===================================================
 //app.options("*", cors(corsOptions));
-//app.get("*", checkUser);
+app.get("*", checkUser);
 
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user.id);
