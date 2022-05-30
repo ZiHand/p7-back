@@ -1,15 +1,15 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const userRoutes = require("./routes/user_routes");
-const postRoutes = require("./routes/post_routes");
-const commentRoutes = require("./routes/comment_routes");
-const db = require("../config/db");
-const { checkUser, requireAuth } = require("./middlewares/auth_middleware");
-const cors = require("cors");
+import express, { json } from "express";
+import cookieParser from "cookie-parser";
+import userRoutes from "./routes/user_routes";
+import postRoutes from "./routes/post_routes";
+import commentRoutes from "./routes/comment_routes";
+import { sync } from "../config/db";
+import { checkUser, requireAuth } from "./middlewares/auth_middleware";
+import cors from "cors";
 
-const UserModel = require("./models/user_model");
-const PostModel = require("./models/post_model");
-const CommentModel = require("./models/comment_model");
+import UserModel, { hasMany } from "./models/user_model";
+import PostModel, { hasMany as _hasMany, belongsTo } from "./models/post_model";
+import CommentModel, { belongsTo as _belongsTo } from "./models/comment_model";
 
 // ===================================================
 //                 Express App Creation
@@ -18,7 +18,7 @@ const app = express();
 
 // Ici, Express prend toutes les requêtes qui ont comme Content-Type  application/json
 // et met à disposition leur  body  directement sur l'objet req
-app.use(express.json());
+app.use(json());
 app.use(cookieParser());
 
 // ===================================================
@@ -47,7 +47,7 @@ app.use(cors(corsOptions));
 // ===================================================
 // Apply to all get routes
 // ===================================================
-app.options("*", cors(corsOptions));
+//app.options("*", cors(corsOptions));
 app.get("*", checkUser);
 
 app.get("/jwtid", requireAuth, (req, res) => {
@@ -64,15 +64,15 @@ app.use("/api/comment", commentRoutes);
 // ===================================================
 //                 DB Connection
 // ===================================================
-UserModel.hasMany(PostModel, { as: "posts" });
-PostModel.hasMany(CommentModel, { as: "comments", onDelete: "cascade" });
+hasMany(PostModel, { as: "posts" });
+_hasMany(CommentModel, { as: "comments", onDelete: "cascade" });
 
-PostModel.belongsTo(UserModel);
+belongsTo(UserModel);
 
-CommentModel.belongsTo(PostModel, { onDelete: "cascade" });
-CommentModel.belongsTo(UserModel);
+_belongsTo(PostModel, { onDelete: "cascade" });
+_belongsTo(UserModel);
 
-db.sync()
+sync()
   .then(() => {
     console.log("Connection to Groupomania DB OK.");
   })
@@ -83,4 +83,4 @@ db.sync()
 // ===================================================
 //                     Export
 // ===================================================
-module.exports = app;
+export default app;
