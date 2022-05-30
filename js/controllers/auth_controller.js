@@ -66,7 +66,12 @@ module.exports.login = async (req, res) => {
 // ===================================================
 module.exports.logout = async (req, res) => {
   console.log("logout");
-  res.cookie("jwt", "", { maxAge: 1 });
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    maxAge: 1,
+    secure: true, // Needed for Heroku.com CORS Policy
+    sameSite: "none", // Needed for Heroku.com CORS Policy
+  });
+  console.log("Cookie: ", res.cookie);
   //res.redirect("/");
-  console.log(res.cookie);
 };
