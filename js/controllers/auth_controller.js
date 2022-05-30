@@ -75,5 +75,6 @@ module.exports.logout = async (req, res) => {
   });
   console.log("Cookie: ", JSON.stringify(res.cookie));
   //res.redirect("/api/user/getAll");
+  res.status(200);
   res.send("Logged out");
 };
